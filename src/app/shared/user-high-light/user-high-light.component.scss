@@ -1,0 +1,50 @@
+@import "../../mixin";
+@import "../../../assets/sass/paper-kit/variables";
+
+.author{
+  color: rgba(0, 0, 1, 0.5);
+  font-weight: normal !important;
+  font-family: Helvetica Neue;
+}
+.author:hover{
+  text-decoration: underline;
+  color:$highLightColor;
+}
+
+.pop-profile-pic{
+  background-color: #FFFFFF;
+  margin-bottom: 10px;
+  padding: 4px;
+  border-radius: 10px;
+  padding: 4px;
+  max-width: 100%;
+  -webkit-box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+
+}
+.author-info{
+  position: relative;
+width: auto;
+display: inline-block;
+}
+.popover {
+  top: -200px;
+  height: 200px;
+  width: 400px;
+// font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+    .arrow{
+      position: absolute;
+display: block;
+width: 1rem;
+height: .5rem;
+margin: 0 .3rem;
+    }
+}
+
+
+.fixed-bottom-right{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

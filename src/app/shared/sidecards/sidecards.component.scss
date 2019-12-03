@@ -1,0 +1,140 @@
+@import "../../mixin";
+$highLightColor:#ff7864;
+i{
+    font-size: 20px;
+}
+.info{
+  a{
+    font-size: 0.8em;
+
+  }
+}.date{
+  font-size: 0.8em;
+}
+.sid-div{
+  margin-left: 0px;
+margin-right: 0px;
+}
+// .horizontal-row:hover{
+//     -webkit-box-shadow: 2px 7px 10px 4px rgba(0, 0, 0, 0.15);
+//   box-shadow: 0px 2px 11px 2px rgba(0, 0, 0, 0.15);
+// }
+.horizontal-row{
+
+border-radius: 4px;
+margin-left: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+border-radius: 6px;
+-webkit-box-shadow: none;
+box-shadow: none;
+
+
+}
+.horizontal-blog:hover{
+  .card-title{
+    // text-decoration: underline;
+
+
+   a:hover{
+     color: $highLightColor;
+   }
+  }
+  // .card-cateogry{
+  //   color: $highLightColor;
+  // }
+}
+.horizontal-blog {
+    overflow: hidden;
+    height: auto;
+a{
+    letter-spacing: normal !important;
+}
+
+ .trending-article{
+   overflow: hidden;
+margin: 0px !important;
+ }
+ .pub{
+   position: relative;
+   display: inline-block;
+    letter-spacing: normal;
+ }
+ .topic:hover,.author:hover,.pub:hover{
+   text-decoration: underline;
+ }
+ .pub:after{
+   content: "";
+   position: absolute;
+   top: 8px;
+   right: -12px;
+   width: 9px;
+   height: 8px;
+    background-image: url("../../../assets/img/sprites.png");
+    background-repeat: no-repeat;
+    background-position: -100px -150px;
+ }
+ .trend-action{
+   position: absolute;
+   bottom: 0%;
+   right: 0px;
+
+
+ }
+ .star-icon{
+   display: inline-block;
+    font-size:0.8em;
+ }
+ .action-icons{
+   display: inline-block;
+    font-size: 1.5em;
+ }
+ .card-content{
+   padding: 10px 0px;
+ }
+ .card-title{
+    font-weight: bold;
+    font-size: 1.6em;
+    line-height: normal;
+    text-transform: capitalize;
+    margin-top: 10px;
+    text-align: left;
+
+
+ }
+}
+
+.card-image{
+    @include mobile{
+      width: 40%;
+    }
+    padding: 0px 14px 0px 0px;
+  overflow: hidden;
+  margin: 0px !important;
+  .card-bg{
+    width: 100%;
+    height: 100%;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-origin: border-box !important;
+    background-size: 100% !important;
+
+  }
+}
+.card-content{
+  @include mobile{
+    width: 60%;
+  }
+}
+.card-cateogry{
+  @include mobile{
+    margin-left: 20%;
+  }
+
+}
+.sample{
+  height: 40px;
+  overflow: hidden;
+  display: block;
+  color:rgba(0,0,0,.54);
+}

@@ -1,0 +1,206 @@
+<div class="wrapper" id="auth">
+    <div class="page-header lite-bg" >
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-9 col-sm-9 mr-auto ml-auto">
+                        <div class="card card-register z-depth-5">
+                          <div class="card-content card-main-content">
+                            <div class="title-div">
+                              <h1 href="#" class="brand-logo  black-text text-capitalize mb-5 line_height">
+                                <a routerLink="/home" class="black-text">
+                                  <i  class="material-icons dp48 medium title-icon line_height">{{icons}}</i>
+                                  {{'TITLE'| translate}}
+                                </a>
+
+                              </h1>
+                            </div>
+
+
+                            <div class="card-tabs">
+                                  <ul class="tabs tabs-fixed-width">
+                                    <li (click)="showTab()" [ngClass]="{'active': !showLogin }"
+                                    class="tab"><a
+                                       [ngClass]="{'active': showLogin }" >{{"login.login"|translate}}</a></li>
+                                    <li
+                                     (click)="showTab()"  class="tab"><a  [ngClass]="{'active': !showLogin }" >{{"login.register"|translate}}</a></li>
+                                  </ul>
+                            </div>
+
+                            <div class="card-content grey lighten-4 ">
+                             <div id="login"  [hidden]="!showLogin">
+                               <form class="register-form">
+                                 <div class="input-field ">
+                                   <i class="material-icons prefix">email</i>
+                                   <input [(ngModel)]="email"
+                                   name= "email" id="login_last_name" type="text" class="validate">
+                                   <label for="login_last_name">{{"login.email"|translate}}</label>
+                                 </div>
+                                 <div class="input-field ">
+                                    <i class="material-icons dp48 prefix">vpn_key</i>
+                                   <input [(ngModel)]="password"
+                                    name= "password"  id="login_password" type="password" class="validate" >
+                                   <label for="login_password">{{"login.password"|translate}}</label>
+                                </div>
+                                  <div class="pull-right row">
+
+                                    <img *ngIf="loadingLogin"
+                                    class="btn btn-default
+                                     waves-effect waves-lightsubmit
+                                     submit  w-100"
+                                    src="assets/img/loading-small.svg" alt="loading">
+
+                                    <button *ngIf="!loadingLogin" (click)="onLogin()"  class="
+                                    btn btn-default waves-effect
+                                    waves-lightsubmit">{{"login.login"|translate}}</button>
+                                  </div>
+                                  <a (click)="forgot_password.open()"  class="clearfix pull-right row">{{"login.forgotPasswrod"|translate}}</a>
+
+                               </form>
+                                 <p class="error error ml-5 mt-3 font-weight-bold">{{errorMessage}}</p>
+
+                             </div>
+
+                             <div id="register"  [hidden]="showLogin">
+                               <form class="register-form">
+                                 <div class="input-field ">
+                                   <i class="material-icons prefix">account_circle</i>
+                                   <input [(ngModel)]="signup_name" name="signupName" id="register_firstname"
+                                    type="text" class="validate" >
+                                   <label for="register_firstname">{{"login.name"|translate}}</label>
+                                 </div>
+
+                                 <div class="input-field ">
+                                   <i class="material-icons dp48 prefix">email</i>
+                                   <input [(ngModel)]="signup_email" id="register_last_name" name="signupEmail"
+                                   type="text" class="validate">
+                                   <label for="register_last_name">{{"login.email"|translate}}</label>
+
+                                 </div>
+                                 <div class="input-field ">
+                                   <i class="material-icons dp48 prefix">vpn_key</i>
+                                   <input [(ngModel)]="signup_password" id="register_password" name="signupPassword"
+                                    type="password" class="validate" >
+                                   <label for="register_password">{{"login.password"|translate}}</label>
+                                 </div>
+
+                                  <div class="pull-right row">
+
+                                    <img *ngIf="loadingSignup"
+                                    class="btn btn-default
+                                     waves-effect waves-lightsubmit
+                                     submit  w-100"
+                                    src="assets/img/loading-small.svg" alt="loading">
+
+                                    <button *ngIf="!loadingSignup" (click)="signup()" class="
+                                    btn btn-default
+                                     waves-effect waves-lightsubmit
+                                     submit">{{"login.createAccoount"|translate}}</button>
+
+                                  </div>
+                                <p  *ngIf="signupError" class="error error ml-5 mt-3 font-weight-bold">{{ "login.signupError" |translate}}</p>
+                                <p  *ngIf="signupServerError" class="error error ml-5 mt-3 font-weight-bold">{{signupServererrorMessage}}</p>
+
+                                  <p class="clearfix pull-right row"> {{"login.beforeCreate"|translate}}
+                                    <b (click)="terms.open()" class="cursor-pointer" >&nbsp; {{"login.terms"|translate}} &nbsp;</b>
+                                    <b (click)="data_policy.open()" class="cursor-pointer" > {{"login.datapolicy"|translate}}</b>
+                                  </p>
+                               </form>
+                             </div>
+
+                           </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="footer register-footer text-center">
+                    <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Kadal team</h6>
+                </div> !-->
+            </div>
+    </div>
+</div>
+
+<mz-modal  #forgot_password id="forgot_password" [fixedFooter]="true" >
+  <mz-modal-header>
+   {{"login.forgotPasswrod"|translate}}
+ </mz-modal-header>
+<mz-modal-content>
+  <div class="input-field ">
+    <i class="material-icons dp48 prefix">email</i>
+    <input [(ngModel)]="password_email" id="register_password_name" name="passwordEmail"
+    type="text" class="validate">
+    <label for="register_last_name">{{"login.email"|translate}}</label>
+
+  </div>
+  <div class=" row">
+
+    <img *ngIf="loadingForgotPassword"
+    class="btn btn-outline-default
+     waves-effect waves-lightsubmit
+     submit  w-25 mt-10"
+    src="assets/img/loading-small.svg" s alt="loading">
+
+
+    <button *ngIf="!loadingForgotPassword" (click)="forgotpassword()" class="
+    btn btn-default
+     waves-effect waves-lightsubmit
+     submit">{{"login.forgot_btn"|translate}}</button>
+
+  </div>
+  <p  *ngIf="resetErrorMessage"
+      class="error error ml-5 mt-3 font-weight-bold">
+      {{ resetErrorMessage}}
+  </p>
+  <p  *ngIf="successmsg"
+      class="success ml-5 mt-3 font-weight-bold">
+      <a routerLink="/home">{{ "login.password_reset_req_success" |translate}}</a>
+  </p>
+
+</mz-modal-content>
+<mz-modal-footer>
+ <!--<button mz-button [flat]="true" mz-modal-close>Disagree</button> !-->
+ <button mz-button [flat]="true" mz-modal-close>{{"close"|translate}}</button>
+</mz-modal-footer>
+ </mz-modal>
+
+
+<mz-modal  #terms id="terms" [fixedFooter]="true" [bottomSheet]="true" >
+  <mz-modal-header>
+   Terms
+ </mz-modal-header>
+ <mz-modal-content>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+  laboris nisi ut aliquip ex ea commodo consequat.
+  Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur.
+  Excepteur sint occaecat cupidatat non proident,
+   sunt in culpa qui officia deserunt mollit anim id est laborum.
+</mz-modal-content>
+<mz-modal-footer>
+ <!--<button mz-button [flat]="true" mz-modal-close>Disagree</button> !-->
+ <button mz-button [flat]="true" mz-modal-close>Agree</button>
+</mz-modal-footer>
+ </mz-modal>
+
+
+ <mz-modal  #data_policy id="data_policy" [fixedFooter]="true" [bottomSheet]="true" >
+   <mz-modal-header>
+  Data Policy
+  </mz-modal-header>
+  <mz-modal-content>
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate
+    velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
+ </mz-modal-content>
+ <mz-modal-footer>
+  <!--<button mz-button [flat]="true" mz-modal-close>Disagree</button> !-->
+  <button mz-button [flat]="true" mz-modal-close>Agree</button>
+ </mz-modal-footer>
+</mz-modal>

@@ -1,0 +1,110 @@
+<app-navbar [hideMenu]=true ></app-navbar>
+<div class="">
+
+  <div class="wrapper">
+    <!--  <div class="page-header
+      page-header-xs" data-parallax="true"
+      style="background-image: url('../assets/img/fabio-mangione.jpg');">
+          <div class="filter"></div>
+      </div>!-->
+      <div *ngIf="userInfo" class="section profile-content">
+          <div class="container row">
+              <div class=" col-lg-4 col-md-12 col-sm-12">
+                  <div class="col-md-12 ml-auto mr-auto text-center">
+                    <div class="owner ml-auto mr-auto text-center">
+                        <!-- <div class="avatar">
+                            <img 
+                            [src]="profilePic"
+                             alt="Circle Image" 
+                             data-title="{{userInfo.firstName}}"
+                             class="img-circle img-no-padding img-responsive">
+                        </div> -->
+                        <div class="mt-3">
+                            <app-user-high-light [userDetails]="userInfo" >
+           
+                              </app-user-high-light>
+                        </div>
+                        
+                    </div>
+
+                    <div class="name black-text">
+                        <h6 class="info ">{{userInfo.firstName}}</h6>
+                        <h6 class="info">{{userInfo.email}} </h6>
+                        <span class="description" *ngFor="let skill of skills">{{userInfo.skill}} </span>
+
+                    </div>
+
+                      <p>{{description}}</p>
+                      <span class="info"  >{{userInfo.description}}</span>
+                      <br />
+
+                  </div>
+              </div>
+
+
+              <div class="card-columns">
+                <div *ngFor="let insight of insights" class="card card-plain" (click)="navToInsight(insight.insightDetail.url)">
+
+                  <div class="card-image-customn"
+                  *ngIf=" insight && insight.insightDetail && insight.insightDetail.titleImage && insight.insightDetail.titleImage != ''"
+                   [style.backgroundImage]="'url('+ insight.insightDetail.titleImage +')'">
+
+                  </div>
+                  <div  *ngIf=" insight && insight.insightDetail" class="card-block">
+                      <div  *ngIf="insight && insight.insightDetail && 
+                      insight.insightDetail.titleImage" class="card-image">
+                          <a >
+                            <img data-title="{{insight.insightDetail.title}}"
+                             class="img img-raised"  [src]="insight.insightDetail.titleImage">
+                          </a>
+                        </div>
+                    <h4 class="card-title"> 
+                      <a [routerLink]="['/insight',insight.insightDetail.url]">
+                        {{insight.insightDetail.title}} 
+                      </a></h4>
+                    <p class="card-text" [innerHtml]="insight.insightDetail.sample" ></p>
+                    <p class="card-text"><small class="text-muted">{{insight.insightDetail.updatedDate| date: 'MMM-dd yyyy HH:m'}}</small></p>
+                  </div>
+                </div>
+
+
+              <!-- <div class="nav-tabs-navigation col-lg-8 col-md-9 col-sm-9">
+                  <div class="nav-tabs-wrapper">
+                      <ngb-tabset [justify]="'left'">
+                          <ngb-tab class="black-text" title="{{'insights'|translate}}">
+                              <ng-template ngbTabContent >
+                                  <div class="row following" id="follows">
+                                      <div class="col-md-12 ml-auto mr-auto">
+                                          <ul class="list-unstyled follows">
+                                            <li  *ngFor="let insight of insights;let idx = index" >
+                                              <div  *ngIf="insight.insightDetail && insight.insightDetail.status == 1"  class="row">
+
+                                                <div class="col-md-9 col-sm-9 ml-auto">
+                                                  <h5 class="insightTitle">{{insight.insightDetail.title}}<br/><small>{{insight.insightDetail.description}}</small></h5>
+                                                  <div class="blog-post" [innerHtml]="insight.insightDetail.sample"></div>
+                                                </div>
+                                              </div>
+                                              <hr *ngIf="insight.insightDetail && insight.insightDetail.status == 1"  />
+                                            </li>
+
+                                          </ul>
+                                          <div *ngIf="!insights || insights.length <= 0">
+                                            <p  class="black-text">{{"myDiaries.no_artile" | translate}}</p>
+                                            <br>
+                                          </div>
+
+                                      <!--  <button (click)="newInsight()" class="btn btn-warning btn-round">{{"myDiaries.new_insight" | translate}}</button> !-->
+                                      <!-- </div>
+                                  </div>
+                              </ng-template>
+                          </ngb-tab>
+                      </ngb-tabset>
+                  </div> -->
+              <!-- </div> -->
+          </div>
+      </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

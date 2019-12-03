@@ -1,0 +1,24 @@
+@import "../../mixin.scss";
+@import "../../../assets/sass/paper-kit/variables";
+.footer-nav{
+  background: #000;
+  box-shadow: none;
+
+  .footer-option{
+    color: #fff
+  }
+  ul {
+    li{
+      display: block;
+    border-bottom: 1px solid #fff;
+    }
+  }
+  
+}
+.footer{
+  background: #000
+}
+.footer-nav{
+  overflow: hidden;
+  height: auto;
+}

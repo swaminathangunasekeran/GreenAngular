@@ -1,0 +1,73 @@
+
+{
+  "HOME": {
+    "TITLE": "Bonjour Angular 2 avec ng2-translate !",
+    "SELECT": "Changer la langue"
+  },
+  "TITLE":"Thudup",
+  "more" : "More",
+  "quotes" : "network of insights",
+  "copyright" : "made with love by Thudup ",
+  "insight" : "insight",
+  "comments":"you can comment here",
+  "login": {
+    "login":"login",
+    "register" : "register",
+    "email" : "e-mail",
+    "password" : "new password",
+    "forgotPasswrod":"Forgot password?",
+    "createAccoount" : "Create an Account",
+    "beforeCreate" : "Before create an account you are accepting our" ,
+    "terms" : "terms",
+    "datapolicy" : "Data policy are accepted",
+    "name" : "name"
+  },
+  "mainNav" : {
+       "search" : "search in Thudup",
+       "home" : "HOME",
+       "technology" : "TECHNOLOGY",
+       "politics" : "POLITICS",
+       "travel" : "TRAVEL",
+       "religion" : "RELIGION",
+       "byyoung" : "BY-YOUNGSTERS",
+       "health" : "HEALTH",
+       "history" : "HISTORY",
+       "stories" : "STORIES",
+       "science" : "SCIENCE",
+       "rationalism" : "RATIONALISM",
+       "more" : "MORE"
+  },
+  "homeBody" : {
+    "wePickup" : "Our picks",
+    "fromNetwork":"From network",
+    "answerIt" : "Contribute",
+    "fromNearBy" : "From Near By",
+    "trending":"trending",
+    "madeWith" : "made with",
+    "bythudup" : "by Thudup"
+  },
+  "newInsight" : {
+      "typelang" : "type in any language",
+      "heading" : "new insight",
+      "title" : "Insight title",
+      "login" : "login",
+      "loginWithEmail" : "login with email",
+      "loginWithFB" : "login with facebook",
+      "becomeMember" : "Become an member",
+      "newStory" : "New story",
+      "stories" : "Stories",
+      "series" : "Series",
+      "stats" : "Stats",
+      "partener" : "Partner program",
+      "bookmarks" : "Bookmarks",
+      "publications" : "Publications",
+      "customizeIntreset" : "Customize your intresets",
+      "profile": "Profile",
+      "settings" : "Settings",
+      "help" : "Help",
+      "signout" : "Signout",
+      "upload" : "Upload",
+      "titleImage": "titleImage"
+
+  }
+}

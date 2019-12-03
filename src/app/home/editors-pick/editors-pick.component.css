@@ -1,0 +1,20 @@
+.img-thumbnail{
+  width: 60px;
+  height: 60px;
+}
+
+.card-home{
+    height: 258px;
+    overflow: hidden;
+}
+
+.card-text{
+  line-height: 1.9em;
+}
+.card-title{
+  font-weight: bold;
+}
+
+.card{
+  box-shadow: none !important;
+}

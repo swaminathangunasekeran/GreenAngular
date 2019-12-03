@@ -1,0 +1,153 @@
+<nav class="navbar title-navbar navbar-expand-lg  white row page-header page-header-small">
+<!-- <div class="filter"></div> -->
+  <div class="navcontainer">
+    <div class="col s2 hidden-lg-up ">
+
+        <i   id="btn-sidenav" class="material-icons dp48 iconmedium white-text ">menu</i>
+
+    </div>
+    <div  class=" row col s7 l7 fill text-center brand-block ">
+
+      <div class="new-insight hide-on-med-and-down">
+        <a
+        *ngIf="!userLoggedInLoading"
+        class="white-text highLightColor float-left mt-3 "
+          (click)="newInsight()">{{'newInsight.heading'| translate}}</a>
+  <!-- <button *ngIf="!userLoggedInLoading"  type="button" (click)="newInsight()"
+      class="btn btn-default float-left mt-4 hide-on-med-and-down">
+
+    </button> -->
+        <!-- <img *ngIf="userLoggedInLoading"
+        class="btn w-25 btn-outline-default float-left mt-4 hide-on-med-and-down"
+        src="assets/img/loading-small.svg" alt="loading"> -->
+      </div>
+
+        <div class="title-div l8 col ">
+          <h1 href="#" class="brand-logo  white-text line_height">
+            <a routerLink="/home" class="white-text">
+              <i  class="material-icons dp48 medium title-icon line_height mr-0" >
+                {{icons}}
+              </i>
+              {{'TITLE'| translate}}
+            </a>
+          </h1>
+        </div>
+    </div>
+
+    <div *ngIf="userLoggedInStatus" class="col s1   hide-on-med-and-down float-right">
+      <a  class="dropdown-button d-block float-right mt-3" (click)="showProfile()" id="profile-img">
+        <img [src]="profilePic"
+        class="img-thumbnail img-responsive mt-2" alt="{{name}}">
+      </a>
+
+      <ul id='profile-options' class='dropdown-content profile-content'>
+        <!-- <li><a href="#!">{{'newInsight.becomeMember'| translate}}</a></li> -->
+        <li><a [routerLink] = "['/newInsight']" >{{'newInsight.newStory'| translate}}</a></li>
+        <li><a [routerLink] = "['/myDiaries']"  >{{'newInsight.myDiaries'| translate}}</a></li>
+        <!-- <li><a href="#!">{{'newInsight.series'| translate}}</a></li> -->
+        <!--<li><a href="#!">{{'newInsight.stats'| translate}}</a></li> !-->
+        <!-- <li class="divider"></li> -->
+        <!-- <li><a href="#!">{{'newInsight.partener'| translate}}</a></li> -->
+        <!-- <li class="divider"></li> -->
+        <!-- <li><a href="#!">{{'newInsight.bookmarks'| translate}}</a></li>
+        <li><a href="#!">{{'newInsight.publications'| translate}}</a></li>
+        <li><a href="#!">{{'newInsight.customizeIntreset'| translate}}</a></li>
+        <li><a href="#!">{{'newInsight.profile'| translate}}</a></li>
+        <li><a href="#!">{{'newInsight.settings'| translate}}</a></li>
+        <li><a href="#!">{{'newInsight.help'| translate}}</a></li> -->
+        <li (click)="logout()"><a href="#!">{{'newInsight.signout'| translate}}</a></li>
+
+      </ul>
+    </div>
+
+    <div *ngIf="!userLoggedInStatus" class="col s1
+    hide-on-med-and-down float-right ">
+        <button *ngIf="!userLoggedInLoading" mz-button (click)="openLoginModal()" type="button" data-target="#modal1"
+        class="btn btn-default float-left mt-4">
+        {{'newInsight.login'| translate}}
+      </button>
+
+      <!-- <img *ngIf="userLoggedInLoading" class="btn btn-outline-default float-left mt-4"
+      src="assets/img/loading-small.svg"  alt="loading"> -->
+    </div>
+
+    <!-- <div *ngIf="userLoggedInStatus"  class="col s3 l1 float-right notification">
+            <i  class="material-icons dp48 medium white-text line_height float-right">{{notification}}</i>
+      </div> -->
+    <div *ngIf="userLoggedInStatus"  class="col s3 l1 float-right mt-2 ">
+      <!-- <i  class="material-icons dp48 medium white-text line_height float-right">{{notification}}</i> -->
+      <button  mz-button  [routerLink] = "['/myDiaries']"  type="button" 
+      class="btn btn-default float-left dairy-button">
+      {{'newInsight.myDiaries'| translate}}
+    </button>
+</div>
+  <!-- <div class="col s3 l3 input-field mr-1 hide-on-med-and-down float-right search-div">
+          <i class="material-icons prefix white-text line_height">search</i>
+          <input id="search_lens" type="text" class="validate"  >
+          <label for="icon_prefix"  >{{'mainNav.search'| translate}}</label>
+    </div> -->
+    <!--<div class="hidden-lg-up">
+      <i class="material-icons prefix black-text line_height">search</i>
+    </div> !-->
+  </div>
+</nav>
+
+<nav *ngIf="!hideMenu"  class="navbar menu-navbar navbar-expand-lg  row hide-on-med-and-down" id="menu-nav" color-on-scroll="500">
+<div class="filter"></div>
+<!-- <i (click)="leftArrowClick()"
+ class="md-icon dp48 left_arrow material-icons left" >keyboard_arrow_left</i> -->
+  <mz-navbar class="col s12 no-padding " id="header-nav" >
+   <mz-navbar-item-container [align]="'right'" class="header-left">
+      <li><a class="black-text  main-menu" [routerLink] = "['/home']" >{{'mainNav.home'| translate}}</a></li>
+      <mz-navbar-item><a id="technology" class=" main-menu" [routerLink] = "['/topic','technology']" >{{'mainNav.technology'| translate}}</a></mz-navbar-item>
+     <mz-navbar-item><a id="politics" class=" main-menu" [routerLink] = "['/topic','politics']" >{{'mainNav.politics'| translate}}</a></mz-navbar-item> 
+      <mz-navbar-item><a id ="travel" class=" main-menu" [routerLink] = "['/topic','travel']" >{{'mainNav.travel'| translate}}</a></mz-navbar-item>
+      <mz-navbar-item><a class=" main-menu" [routerLink] = "['/topic','science']" >{{'mainNav.science'| translate}}</a></mz-navbar-item>
+      <mz-navbar-item><a class=" main-menu" [routerLink] = "['/topic','religion']" >{{'mainNav.religion'| translate}}</a></mz-navbar-item>
+      <mz-navbar-item><a class=" main-menu" [routerLink] = "['/topic','food']" >{{'mainNav.food'| translate}}</a></mz-navbar-item>
+      <!-- <mz-navbar-item><a class="black-text  main-menu" routerLink="js">{{'mainNav.byyoung'| translate}}</a></mz-navbar-item> -->
+      <mz-navbar-item><a class="main-menu" [routerLink] = "['/topic','health']" >{{'mainNav.health'| translate}}</a></mz-navbar-item>
+      <mz-navbar-item><a class=" main-menu" [routerLink] = "['/topic','stories']" >{{'mainNav.stories'| translate}}</a></mz-navbar-item>
+      <!-- <mz-navbar-item><a class=" main-menu" [routerLink] = "['/more']">{{'mainNav.more'| translate}}</a></mz-navbar-item> -->
+      <mz-navbar-item>
+
+      </mz-navbar-item> 
+    </mz-navbar-item-container>
+  </mz-navbar>
+  <!-- <i class="md-icon dp48 left_arrow material-icons right"
+  (click)="rightArrowClick()">keyboard_arrow_right</i> -->
+</nav>
+
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+
+<app-sidenav [userLoggedInStatus]="userLoggedInStatus"  ></app-sidenav>
+
+
+<!--<mz-sidenav   [collapseButtonId]="'btn-sidenav'"
+  [id]="'sidenav-main'" class="hidden-lg-up">
+  <mz-sidenav-header>
+    Sidenav header
+  </mz-sidenav-header>
+  <mz-sidenav-subheader>Link to Subheader</mz-sidenav-subheader>
+  <mz-sidenav-link>
+    <a href="#">First Link</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link [active]="true">
+    <a href="#">Active Link</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a href="#" class="waves-effect">Second Link With Waves</a>
+  </mz-sidenav-link>
+</mz-sidenav> !-->

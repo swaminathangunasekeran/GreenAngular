@@ -1,0 +1,36 @@
+<mz-modal [fixedFooter]="true" [options]="modalOptions">
+  <mz-modal-content >
+    <a class="modal-close">
+      <i class="material-icons black-text">close</i>
+    </a>
+      <h4 class="text-center">  {{'newInsight.login'| translate}}</h4>
+      <p class="description">{{'login.description'|translate}}</p>
+    <div class="row">
+      <div class="col s1">
+         <div class="container">
+           <button  routerLink="/auth"  mz-modal-close class="btn btn-default mx-auto mt-4 ml-3 d-block">
+             <i class="material-icons">email</i> <span >{{'newInsight.loginWithEmail'| translate}}</span>
+           </button>
+         </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col s1">
+        <div class="container">
+          <button   (click)="fbLogin()"  mz-modal-close class=" btn btn-default mx-auto mt-0 ml-3 d-block">
+          <i class="fa fa-facebook-official"></i> <span >  {{'newInsight.loginWithFB'| translate}}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+  </mz-modal-content>
+
+
+  <!--<mz-modal-footer>
+
+    <button mz-button [flat]="true" mz-modal-close>Close</button>
+  </mz-modal-footer>!-->
+</mz-modal>

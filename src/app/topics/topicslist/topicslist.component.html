@@ -1,0 +1,22 @@
+<div class="row">
+  <div  *ngFor="let insight of insights;let i = index"
+    class="col-md-12 p-0" >
+    <div class="no-login" *ngIf="!userLoggedInStatus  && !userLoggedInLoading && i==2" >
+
+        <div class="heading">
+          Welcome to Thudup,
+          <br>we carry tamil blogs.
+        </div>
+        <div clas="description"></div>
+        <div clas="btn-set" style="margin-left:16%;">
+          <button (click)="openLoginModal()"class="btn btn-neutral" type="button">  {{'newInsight.login'| translate}}</button>
+          <button  class="btn  btn-neutral" type="button">  {{'more'| translate}}</button>
+        </div>
+
+      </div>
+
+<app-thudupcard  [insightDetails]="insight" [index]= "i" ></app-thudupcard>
+  </div>
+
+
+  <div class="extremeHero-divider"></div>

@@ -1,0 +1,95 @@
+
+
+<div class="row mt-4">
+  <div class="card-deck col-xl-8 col-lg-8 col-md-12 col-sm-12 main-article">
+  <h5 class="ml-4 text-center title">{{'homeBody.fromNetwork'| translate}}</h5>
+    <div  *ngFor="let insight of insights;let i = index"
+      class="col-md-12 p-0" (click)="navToInsight(insight.url)">
+     <!-- class="col-md-12 p-0" (click)="navToInsight(insight.url)"> -->
+      <div class="card card-plain m-2" >
+        <app-horizontalcard [insightDetails]="insight" ></app-horizontalcard>
+        <!-- <div class="card-image-customn"
+        *ngIf="insight.titleImage && insight.titleImage != ''"
+         [style.backgroundImage]="'url('+ insight.titleImage +')'">
+
+        </div> -->
+        <!-- <img *ngIf="insight.titleImage && insight.titleImage != ''" class="card-img-top" src="{{insight.titleImage}}" alt="Card image cap"> -->
+
+        <!-- <div class="card-block ">
+          <div class="row mb-0">
+            <div class="card-image-customn col-md-4"
+            *ngIf="insight.titleImage && insight.titleImage != ''"
+             [style.backgroundImage]="'url('+ insight.titleImage +')'">
+
+            </div>
+
+            <div [ngClass]="(insight.titleImage && insight.titleImage != '')?'col-md-8':'col-md-12'" >
+              <h4 class="card-title m-0">{{insight.title}}</h4> -->
+              <!-- <div   *ngIf="insight.titleImage && insight.titleImage != ''"
+              class="card-text with-image-height" [innerHtml]="insight.sample" ></div>
+              <div   *ngIf="!insight.titleImage || insight.titleImage == ''"
+              class="card-text no-image-height " [innerHtml]="insight.sample" ></div> -->
+
+              <!-- <div class="p-1">
+                  <div>{{insight.author.userName}}
+                    in {{insight.publication.name}}
+                  </div>
+                <p class=""><small class="text-muted" i18n>
+                  {{ "homeBody.lastUpdate1" | translate}}
+                  {{insight.updatedDate | date: 'MMM-dd yyyy h:'}}
+                  {{"homeBody.lastUpdate2" | translate }}
+                </small>
+              </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div> -->
+      </div>
+
+    </div>
+
+    <!-- <div class="card card-plain">
+      <img class="card-img-top" src="https://cdn-images-1.medium.com/max/1600/1*mZ1TL7iB4iPN4Z8kDetnOg.jpeg" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card card-plain">
+      <img class="card-img-top" src="https://cdn-images-1.medium.com/max/800/1*1PhXAI6fnSzZ3ve5TzUsiQ.jpeg" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card card-plain">
+      <img class="card-img-top" src="https://cdn-images-1.medium.com/max/1600/1*mZ1TL7iB4iPN4Z8kDetnOg.jpeg" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card card-plain">
+      <img class="card-img-top" src="https://cdn-images-1.medium.com/max/800/1*1PhXAI6fnSzZ3ve5TzUsiQ.jpeg" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div> -->
+  </div>
+
+  <div
+  class="col-xl-4 col-lg-4 col-md-12 col-sm-12 trend-article">
+  <h5 class="text-center title">{{'homeBody.wePickup'| translate}}</h5>
+  </div>
+</div>
+
+<!-- <button type="button" class="btn btn-default float-right mb-2">{{'more'| translate}}</button> -->
+<hr class="clearfix">

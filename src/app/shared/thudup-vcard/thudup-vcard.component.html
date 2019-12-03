@@ -1,0 +1,106 @@
+<div  >
+  <div  class="card card-blog">
+    <div  *ngIf="insightDetails.titleImage" class="card-image">
+      <a >
+        <img data-title="{{insightDetails.title}}" class="img img-raised"  [src]="insightDetails.titleImage">
+      </a>
+    </div>
+
+
+
+
+  <div  class="card-body">
+    <h6  class="card-category text-info">{{getTopicTranslated(insightDetails.topic[0].title)}}</h6>
+    <h5  class="card-title">
+      <a  [routerLink]="['/insight',insightDetails.url]">{{insightDetails.title}}</a>
+    </h5>
+    <p _ngcontent-c6="" class="card-description" [innerHtml]="insightDetails.sample"></p>
+    <hr>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-2 p-0">
+        <app-user-high-light  [userDetails]="insightDetails.authorDetails[0]" >
+
+        </app-user-high-light>
+    </div>
+    
+    <div  class="card-footer">
+        <!-- <div _ngcontent-c6="" class="stats">
+          <i _ngcontent-c6="" aria-hidden="true" class="fa fa-clock-o"></i> 5 min read 
+        </div> -->
+        <button *ngIf ="insightDetails.userReaction && insightDetails.userReaction.length > 0"
+            (click)="unlikeInsight(insightDetails._id)" 
+            class="btn btn-link btn-just-icon btn-neutral like-border
+            col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+            <!-- <span class="like-span" *ngIf="insightDetails.numberOfLikes > 0"  >
+               {{insightDetails.numberOfLikes}}</span>  -->
+           <i class="material-icons">
+                 thumb_up
+               </i>
+               <label class="mt-3" *ngIf="insightDetails.numberOfLikes > 1" > 
+                 <a  >{{"you" |translate }} {{insightDetails.numberOfComments}}
+                    & {{insightDetails.numberOfLikes}}
+                    {{"liked_this"|translate}}</a>
+               </label>
+               <label class="mt-3"  *ngIf="insightDetails.numberOfLikes == 1" > 
+                  <a > {{"you_alone_liked"| translate}}</a>  
+               </label>
+               <label class="mt-3" *ngIf="insightDetails.numberOfComments == 1" > 
+                <a > {{"one_commented_this" |translate }}</a>  
+                
+                </label>
+                <label class="mt-3" *ngIf="insightDetails.numberOfComments > 1" > 
+                  <a  >{{insightDetails.numberOfComments}}
+                    {{"comment_this"|translate}}
+                   </a>  
+                  
+                  </label>
+         </button>
+        
+ 
+       <button  *ngIf ="!insightDetails.userReaction || insightDetails.userReaction.length <= 0" 
+       (click)="likeInsight(insightDetails._id)"
+        class=" btn btn-link btn-just-icon btn-neutral
+         col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+         <!-- <span *ngIf="insightDetails.numberOfLikes > 0"  >
+             {{insightDetails.numberOfLikes}}</span>  -->
+         <i class="material-icons">
+             thumb_up
+           </i>
+           <label class="mt-3" *ngIf="insightDetails.numberOfLikes >1" > 
+             <a  >{{insightDetails.numberOfLikes}}
+               {{"liked_this"|translate}}
+              </a> 
+            
+           </label>
+           <label class="mt-3" *ngIf="insightDetails.numberOfLikes == 1" > 
+           <a > {{"one_liked_this" |translate }}</a>  
+           
+           </label>
+           <label class="mt-3" *ngIf="insightDetails.numberOfComments == 1" > 
+            <a > {{"one_commented_this" |translate }}</a>  
+            
+            </label>
+            <label class="mt-3" *ngIf="insightDetails.numberOfComments > 1" > 
+              <a  >{{insightDetails.numberOfComments}}
+                {{"comment_this"|translate}}
+               </a>  
+              
+              </label>
+
+       </button>
+     
+
+
+      <button (click)="showCommentBox(insightDetails)"  class="btn btn-link btn-just-icon btn-neutral col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+            <i class="material-icons">
+                comment
+              </i> 
+      </button>  
+      <button class="btn btn-link btn-just-icon btn-neutral col-xl-1 col-lg-1 col-md-1 col-sm-1 mt-3">
+          <i class="material-icons">
+                share
+          </i> 
+        </button> 
+      </div>
+    </div>
+  </div>
+</div>

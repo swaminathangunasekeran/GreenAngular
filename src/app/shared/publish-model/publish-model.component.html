@@ -1,0 +1,119 @@
+  <mz-modal [fixedFooter]="true" [options]="modalOptions"  #modal>
+    <mz-modal-header>
+        <p> <b>{{'publish.heading' |  translate}} </b></p>
+        <a class="modal-close">
+          <i class="material-icons black-text">close</i>
+        </a>
+     </mz-modal-header>
+    <mz-modal-content >
+
+      <div class="row" *ngIf="pubInsight">
+              <div class="col-md-12 col-sm-6 ml-auto">
+
+                <div class="row">
+                 
+
+                  <div class="input-group col-md-5 col-sm-6 ml-auto">
+  
+                    <select [(ngModel)]="selectedTopic" class="custom-select" id="topicsGroup">
+                      <option [attr.selected]="topic.title == 'others' ? true : false" *ngFor="let topic of topics" [ngValue]="topic._id" >{{topic.title}}</option>
+                    </select>
+                  </div>
+
+                </div>
+                <!-- <div class="fileinputs">
+                	<input  (change)="onFileChanged($event)"  type="file" class="file"/>
+                	<div class="fakefile">
+                	  <button class="btn btn-default">{{'publish.titleImage' |  translate}}</button>
+                	</div>
+                </div>
+                <img src={{publisImageUrl}} width="90" height="90"> -->
+                <div *ngIf="publisImageUrl" class="title-image">
+                    <div *ngIf="!displayUploadImage" class="add-img-center" (click)="addPhoto()">
+                        <i   class="material-icons prefix">add_photo_alternate</i>
+                        <span class="d-block">{{"myDiaries.insertImage"| translate}}</span>
+                    </div> 
+                    <div *ngIf="displayUploadImage" class="add-img" (click)="addPhoto()">
+                        <i *ngIf="displayUploadImage" class="material-icons prefix icon-maximize">maximize</i>
+                    </div>
+                    <div  (click)="loadmoreImage()" *ngIf="displayUploadImage && imgSearchKeyword"  class="more-img">
+                        <i class="material-icons prefix icon-maximize">expand_more</i>
+                    </div>
+
+                    <img *ngIf="displayUploadImage" [src]=publisImageUrl > 
+                </div>
+                
+                <div *ngIf="!publisImageUrl">
+                    <div *ngIf="!displayUploadImage" class="add-img-center" (click)="addPhoto()">
+                        <i   class="material-icons prefix">add_photo_alternate</i>
+                        <span class="d-block">{{"myDiaries.insertImage"| translate}}</span>
+                    </div> 
+                    <div *ngIf="displayUploadImage" class="add-img" (click)="addPhoto()">
+                        <i *ngIf="displayUploadImage" class="material-icons prefix icon-maximize">maximize</i>
+                    </div> 
+                    <div  (click)="loadmoreImage()" *ngIf="displayUploadImage && imgSearchKeyword"  class="more-img">
+                        <i class="material-icons prefix icon-maximize">expand_more</i>
+                    </div>
+                    <div *ngIf="displayUploadImage" class="input-field add-img-search ">
+                        <i class="material-icons prefix">add_a_photo</i>
+                        <input  (keyup.enter)="searchImage()" [(ngModel)]="imgSearchKeyword"
+                          name= "email" id="login_last_name" type="text" class="validate">
+                        <label for="login_last_name">{{"newInsight.imageplaceHolder"|translate}}</label>
+                        <div *ngIf="imageLoading" class="erro-on-image text-center mt-5" >
+                            <i class="material-icons">move_to_inbox</i>
+                            {{"downloading"| translate}}
+                        </div>
+                        <div *ngIf="errorOnImage" class="erro-on-image text-center mt-5">
+                          <i class="material-icons">broken_image</i>
+                         {{errorOnImageMessage}}  
+                        </div>
+                        <app-image-gallery  (selectedImage)='imageSelectd($event)' [imageDetails]= "searchResultimages"></app-image-gallery>
+                    </div> 
+                </div>
+                <medium-editor    [(editorModel)]="description"
+             [editorOptions]="{disableReturn: true, disableExtraSpaces: true, toolbar: false ,imageDragging: false}"
+             [editorPlaceholder]='"myDiaries.insetDescription"| translate'>
+           </medium-editor>
+
+                <h3 class="text-center col-md-12 col-sm-12 mr-auto insightTitle font-weight-bold bg-light m-0 pt-2">
+                    {{pubInsight.title}}<br/>
+                  </h3>
+                <div class="blog-post bg-light p-4" [innerHtml]="pubInsight.insightbody"></div>
+              </div>
+          </div>
+      <hr />
+  </mz-modal-content>
+  <mz-modal-footer class="col-md-12">
+    <a *ngIf="pubErrorMessage && !publishedMessage" class="font-weight-bold error bg-light">{{pubErrorMessage}}</a>
+    <a *ngIf="publishedMessage" class="font-weight-bold text-success bg-light">{{publishedMessage}}</a>
+    <button mz-button [flat]="true" mz-modal-close>{{'close'| translate}}</button>
+    <button  *ngIf="publicatonLoadingStatus && !pubInsight.pubinsightID" type="button" (click)="publishInsight()"
+    class="btn btn-default float-left mr-1">
+    {{'publish.publishBtn'| translate}}
+    </button>
+    <button  *ngIf="publicatonLoadingStatus && pubInsight.pubinsightID  && pubInsight.status !== 3 " type="button" (click)="republishInsight(false)"
+    class="btn btn-default float-left mr-1">
+    {{'publish.rePublishBtn'| translate}}
+    </button>
+    <button  *ngIf="publicatonLoadingStatus && pubInsight.pubinsightID && pubInsight.status !== 3 " type="button" (click)="republishInsight(true)"
+    class="btn btn-default float-left mr-1">
+    {{'publish.delete'| translate}}
+    </button>
+    <button  type="button" (click)="importDescription()"
+    class="btn btn-default float-left mr-1">
+    {{'myDiaries.importDescription'| translate}}
+    </button>
+    
+
+    <img *ngIf="!publicatonLoadingStatus"
+    class="btn btn-default
+     waves-effect waves-lightsubmit
+     submit  w-100"
+    src="assets/img/loading-small.svg" alt="loading">
+
+
+
+      <!--<button mz-button [flat]="true" >Publish</button> !-->
+
+  </mz-modal-footer>
+  </mz-modal>

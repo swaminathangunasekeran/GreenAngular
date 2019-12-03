@@ -1,0 +1,82 @@
+#auth {
+
+$title-color :#000!default;
+  h6,p,b{
+    color: $title-color;
+  }
+  .container{
+    width:1140px;
+  }
+  .page-header{
+    /*background: radial-gradient(circle at 47% 9%, #0483f1, #344C63);
+      background: linear-gradient(to right, #36d1dc, #5b86e5);*/
+      //background: $lite-bg ;
+  }
+  .card-register {
+    background-color: #fff;
+  border-radius: 10px;
+  color: #000;
+  max-width: 100%;
+  margin: 10px 0 10px;
+  min-height: 400px;
+  padding: 10px;
+  z-index: 1;
+  width: 100%;
+    .card-content{
+      padding: 12px;
+      .tab{
+         .active{
+          background: #f5583c;
+          color: #fff;
+         }
+      }
+    }
+
+    .card-main-content{
+      padding: 12px;
+      height: 550px;
+    }
+
+    .social-line{
+        .btn{
+            margin-top: 0;
+        }
+    }
+    .title{
+      color: $title-color;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 2.1rem;
+    }
+
+    .icon-preview{
+          text-align: center;
+          color: $title-color;
+          i.medium{
+            font-size: 3rem;
+          }
+    }
+  }
+  #login{
+    margin-top: 14%;
+  }
+
+  .title-div{
+    width: 240px;
+    // margin: 10px auto;
+    overflow: hidden;
+
+    h1 {
+
+      a{
+        float: right;
+        .material-icons{
+          float: left;
+        }
+      }
+    }
+
+  }
+}

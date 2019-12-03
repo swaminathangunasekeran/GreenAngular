@@ -1,0 +1,12 @@
+<div  class="row m-0">
+<!-- <div  class="avatar col-lg-3 col-md-2 col-sm-2 col-2 p-0">
+    <img *ngIf ="profilePic" [src]="profilePic" alt="Circle Image"
+    class="img-circle img-no-padding img-responsive"/>
+</div> -->
+<div class="avatar">
+  <!-- <div><a class="name" href="user-profile/{{userDetails.userName}}">
+    {{userDetails.userName}}
+  </a></div> -->
+  <app-user-high-light  [userDetails]="userDetails" ></app-user-high-light>
+</div>
+</div>

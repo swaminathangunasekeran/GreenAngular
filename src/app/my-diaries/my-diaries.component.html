@@ -1,0 +1,174 @@
+<app-header-one></app-header-one>
+<div class="">
+
+  <div class="wrapper">
+    <!--  <div class="page-header
+      page-header-xs" data-parallax="true"
+      style="background-image: url('../assets/img/fabio-mangione.jpg');">
+          <div class="filter"></div>
+      </div>!-->
+      <div class="section profile-content">
+          
+          <div class="container">
+              <div  class="page-header page-header-small" >
+               <img *ngIf="coverPic && coverPic !== '' " style="height:45vh" 
+               [src]="coverPic" alt="{{userName}}"
+                class="page-header page-header-small">
+
+              <!-- <div  class="filter"></div> -->
+              <div style="position:absolute;width:200px" 
+              class="fileinputs btn btn-default cover-pic">
+                  <input  (change)="onCoverPicUpdate($event)"  type="file" class="file"/>
+                  <div style="width:200px;left:0%;" class="fakefile">
+                    <button class="btn btn-default">{{'coverPic' |  translate}}</button>
+                  </div>
+              </div>
+            </div>
+
+              <div class="row ">
+                <div class="owner ml-auto mr-auto text-center">
+                    <div class="avatar">
+                        <img [src]="profilePic" alt="{{userName}}" class="img-circle img-no-padding img-responsive">
+                    </div>
+                    <div class="fileinputs">
+                      <input  (change)="onProfilePicUpdate($event)"  type="file" class="file"/>
+                      <div class="fakefile">
+                        <button class="btn btn-default">{{'profilePic' |  translate}}</button>
+                      </div>
+                    </div>
+                </div>
+
+                  <div class="col-md-6 ml-auto mr-auto text-center">
+                    <div class="name">
+                        <h6 class="info first-name">{{firstName}}</h6>
+                        <h6 class="info">{{email}} </h6>
+                        <!-- <span class="info" ><a style="letter-spacing:normal !important" href="/user-profile/{{userName}}">{{userName}}</a></span> -->
+                        <!-- <span class="description info" *ngFor="let skill of skills">{{skill}} </span> -->
+                        <!-- <span class="info" *ngIf="skills.length<=0" >{{"myDiaries.Update_skill"|translate}} </span> -->
+                    </div>
+
+                      <p style="text-align: left">{{description}}</p>
+                      <span class="info" *ngIf="!description" >{{"myDiaries.Update_desc"|translate}}</span>
+                      <!-- <button style="float: left;"  class="btn btn-default">{{"myDiaries.edit" |translate }}</button> -->
+                  </div>
+              </div>
+
+
+              <div class="nav-tabs-navigation col-lg-12 col-md-12 col-sm-12 mt-5">
+                  <div class="nav-tabs-wrapper">
+                      <ngb-tabset [justify]="'left'">
+                          <ngb-tab title="{{'myDiaries.drafts' | translate}}">
+                              <ng-template ngbTabContent >
+                                  <div class="row following" id="follows">
+                                      <div class="col-md-12 ml-auto mr-auto">
+                                          <ul class="list-unstyled follows auth-list">
+                                            <li  *ngFor="let insight of insights;let idx = index" >
+                                              <div  *ngIf="insight.insightDetail && insight.insightDetail.status !== 3"  class="row">
+                                                <div class="col-md-9 col-sm-9 ml-auto">
+                                                  <h5 *ngIf="insight.insightDetail.status == 1" class="insightTitle">
+
+                                                    <a href="/insight/{{insight.insightDetail.pubUrl}}">
+                                                      {{insight.insightDetail.title}}</a><br/>
+                                                      <small>{{insight.insightDetail.description}}</small>
+                                                    </h5>
+
+                                                    <h5 *ngIf="insight.insightDetail.status == 0" class="insightTitle">
+
+                                                        {{insight.insightDetail.title}}<br/>
+                                                        <small>{{insight.insightDetail.description}}</small>
+                                                      </h5>
+
+                                                  <div class="auth-blog-post"  [innerHtml]="insight.insightDetail.sample"></div>
+                                                </div>
+                                                
+                                                <div *ngIf="insight.insightDetail.status == 0" class="col-md-3 col-sm-2 ml-auto mr-auto">
+                                                    <div class="form-check">
+                                                      <button (click)="navEditInsight(insight.insightID)" class="btn  btn-default">{{"myDiaries.edit" |translate }}</button>
+                                                    </div>
+                                                    <div class="form-check">
+                                                      <button (click)="publishInsight(idx)" class="btn btn-default">{{"myDiaries.publish" |translate }}</button>
+                                                    </div>
+                                                </div>
+
+                                                <div *ngIf="insight.insightDetail.status == 1" class="col-md-3 col-sm-2 ml-auto mr-auto">
+                                                    <div class="form-check">
+                                                      <button  (click)="navEditInsight(insight.insightID)" class="btn btn-default">{{"myDiaries.edit" |translate }}</button>
+                                                    </div>
+                                                    <div class="form-check">
+                                                      <button (click)="publishInsight(idx)" class="btn btn-default">{{"myDiaries.rePublish" |translate }}</button>
+                                                    </div>
+                                                </div>
+
+
+
+                                              </div>
+                                              <hr *ngIf="insight.insightDetail && insight.insightDetail.status == 0"  />
+                                            </li>
+
+                                          </ul>
+                                          <div *ngIf="!insights || insights.length <= 0">
+                                            <p  class="black-text">{{"myDiaries.no_artile" | translate}}</p>
+                                            <br>
+                                          </div>
+
+                                        <button (click)="newInsight()" class="btn btn-default">{{"myDiaries.new_insight" | translate}}</button>
+                                      </div>
+                                  </div>
+                              </ng-template>
+                          </ngb-tab>
+                          <ngb-tab *ngIf="userRole === 23" title="{{'myDiaries.managePublication' | translate}}">
+                            <ng-template ngbTabContent >
+                              <app-webinsights-config></app-webinsights-config>
+                              </ng-template >
+
+                          </ngb-tab>
+                          <!-- <ngb-tab title="{{'myDiaries.published' | translate}}">
+                              <ng-template ngbTabContent>
+                                <div class="row following" id="follows">
+                                    <div class="col-md-12 ml-auto mr-auto">
+                                        <ul class="list-unstyled follows">
+                                          <li  *ngFor="let insight of publishedInsights;let idx = index" >
+                                            <div  *ngIf="insight.insightDetail && insight.insightDetail.status == 1"  class="row">
+
+                                              <div class="col-md-9 col-sm-9 ml-auto">
+                                                <h5  class="insightTitle">
+
+                                                  {{insight.insightDetail.title}}<br/><small>{{insight.insightDetail.description}}</small>
+
+                                                </h5>
+                                                <div class="blog-post" [innerHtml]="insight.insightDetail.body"></div>
+                                              </div>
+                                              <div  class="col-md-3 col-sm-2 ml-auto mr-auto">
+                                                  <div class="form-check">
+                                                    <button (click)="navEditInsight(insight._id)" class="btn  btn-info btn-round">{{"myDiaries.edit" |translate }}</button>
+                                                  </div>
+                                                <div class="form-check">
+                                                    <button (click)="publishInsight(idx)" class="btn btn-success btn-round">{{"myDiaries.publish" |translate }}</button>
+                                                  </div>
+
+                                              </div>
+
+                                            </div>
+                                            <hr *ngIf="insight.insightDetail && insight.insightDetail.status == 0"  />
+                                          </li>
+
+                                        </ul>
+                                        <div *ngIf="!publishedInsights || publishedInsights.length <= 0">
+                                          <p  class="black-text">{{"myDiaries.no_artile" | translate}}</p>
+                                          <br>
+                                        </div>
+
+                                      <button (click)="newInsight()" class="btn btn-warning btn-round">{{"myDiaries.new_insight" | translate}}</button>
+                                    </div>
+                                </div>
+                              </ng-template>
+                          </ngb-tab>!--->
+                      </ngb-tabset>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+<app-footer></app-footer>

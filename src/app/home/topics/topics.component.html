@@ -1,0 +1,41 @@
+<!-- <h5>Javascript</h5> -->
+<div class="row">
+  <div  *ngFor="let insight of insights;let i = index"
+    class="col-md-12 p-0" >
+
+    <div class="no-login" *ngIf="!userLoggedInStatus && !userLoggedInLoading && i==2">
+      <div class="heading">
+          <span>Thudup</span> உங்களை அன்புடன் வரவேற்கிறது
+      </div>
+      <div clas="description"></div>
+      <div clas="btn-set" style="margin-left:16%;">
+        <button (click)="openLoginModal()"class="btn btn-neutral" type="button">  {{'newInsight.login'| translate}}</button>
+        <button  class="btn  btn-neutral" type="button">  {{'more'| translate}}</button>
+      </div>
+    
+  </div>
+  <div style="width: 80%; margin: 0 auto;" 
+  *ngIf="!userLoggedInStatus && !userLoggedInLoading && i==2" 
+  class="extremeHero-divider"></div>
+<app-thudupcard  [insightDetails]="insight" [index]= "i" ></app-thudupcard>
+  </div>
+
+
+  <div class="extremeHero-divider"></div>
+<!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto">
+  <div class="horizontal">
+    <div class="card-category">
+      <p class="first-letter ">T</p><h2>{{'TITLE'| translate}}</h2></div>
+    <div class="row">
+      <div class="card-stacked card-stacked-noimage pl-4 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.
+             I am a very simple card. I am good at containing small bits of information.
+             I am a very simple card. I am good at containing small bits of information.
+            I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+</div>

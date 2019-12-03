@@ -1,0 +1,123 @@
+@import "../../mixin.scss";
+@import "../../../assets/sass/paper-kit/variables";
+
+
+.card{
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+    background-color: #fff;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #ccc;
+    transition: transform .3s cubic-bezier(.34,2,.6,1),box-shadow .2s,-webkit-transform .3s cubic-bezier(.34,2,.6,1);
+}
+
+.card-image{
+    max-width: 320px;
+
+    border-radius:20px;
+
+    @include mobile{
+        margin: 30px auto;
+        border-radius:0px;
+    }
+    @include tablet{
+        margin: 10px auto;
+    }
+}
+.card-image img{
+    border-radius: 12px 12px 0 0;
+    max-height: 200px;
+    border-radius: 12px 12px 0 0 ;
+    @include mobile{
+        border-radius:0px;
+    }
+    @include tablet{
+        border-radius:0px;
+    }
+}
+.card .author .avatar {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.card-description{
+    color: rgba(0, 0, 0, 0.54) !important;
+    letter-spacing: -.003em;
+    font-size: 18px;
+    line-height: 1.5;
+    font-size: 20px;
+    max-height: 200px;
+    height: auto;
+    overflow: hidden;
+}
+
+.card-title{
+    font-size: 1.8rem;
+    color: #000;
+    line-height: 1em;
+    max-height: 160px;
+    height: auto;
+    letter-spacing: 0.5px !important;
+}
+
+.btn-neutral{
+    padding: 10px 30px !important;
+}
+.btn-link.btn-just-icon {
+    padding: 12px !important;
+}
+.card-footer{
+    padding-left: 20%;
+}
+.btn-link.btn-just-icon:hover,.btn-link.btn-just-icon:active{
+    background: $highLightColor;
+    border-color: $highLightColor !important;
+    color: $white-color  !important;
+    box-shadow: 7px 2px 20px 2px rgba(59, 89, 152, 0.2)
+   
+}
+
+.btn-link.btn-just-icon.like-border:hover,.btn-link.btn-just-icon:active{
+    background: $navColor;
+    border-color: $navColor !important;
+    color:  $white-color !important;
+    box-shadow: 7px 2px 20px 2px rgba(59, 89, 152, 0.2)
+    
+
+}
+.btn-link.btn-just-icon.like-border{
+    letter-spacing: -2px !important;
+    background: $navColor;
+    color: $white-color  !important;
+    padding: 7px 9px !important;
+    transition:all 0.3s ease;
+    label{
+      display: block;
+      letter-spacing: normal;
+      margin-top: 10px;
+      margin-left: -30px;
+      
+    }
+}
+
+.btn-link.btn-just-icon{
+    padding: 8px 7px !important;
+    letter-spacing: -2px !important;
+    border: 4px solid $navColor;;
+    border-color: $navColor !important;
+    box-shadow: -1px -1px 20px rgba(59, 89, 152, 0.2);
+    label,label a{
+        display: block;
+        letter-spacing: normal !important;
+        margin-top: 10px;
+        margin-left: 0px;
+        
+      }
+    
+}

@@ -1,0 +1,43 @@
+@import "../mixin";
+$btn-font: 16px;
+.ta-font{
+  h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td, button, input, select, textarea{
+  //  font-family: 'Catamaran', sans-serif;
+  }
+   .btn{
+     font-size: $btn-font;
+     line-height: 1em;
+     text-align: left;
+      i{
+        line-height: 14px;
+      }
+   }
+  .navbar {
+    .btn{
+      font-size: $btn-font;
+    }
+  }
+  i.left_arrow,i.right_arrow{
+    display: block;
+  }
+  .menu-navbar{
+    a.main-menu{
+      font-size: 16px;
+      padding: 0px 9px;
+      @include  desktop{
+         padding: 0 16px;
+      }
+
+    }
+    ul#nav-mobile{
+        width: 100%;
+      @include  desktop{
+         width: 100%;
+      }
+    }
+
+
+
+  }
+
+}

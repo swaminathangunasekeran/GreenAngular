@@ -1,0 +1,39 @@
+.blog-post{
+  margin: 0 auto;
+
+  }
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+.card-img-top{
+  margin: 3em 0;
+}
+.insightTitle{
+
+  color: rgba(0,0,0,.84);
+  margin: 0 auto;
+  h1{
+      font-size: 2em;
+  }
+}
+.medium-editor-element-box{
+  width: 80%;
+    margin: 40px auto;
+    border: 1px solid #000;
+    /* margin: 10px; */
+    height: 120px;
+    padding: 10px;
+}
+
+.btn-like-fixed{
+  position: fixed;
+    top: 60%;
+    left: 3%;
+}
+
+.btn-share-fixed{
+  position: fixed;
+    top: 70%;
+    left: 3%;
+}

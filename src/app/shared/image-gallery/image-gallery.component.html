@@ -1,0 +1,14 @@
+<div class="row m-5">
+    <div class="col-md-12 img-box"> 
+      <div id="mdb-lightbox-ui"></div>
+      <div  *ngFor="let image of imageDetails ;let i = index" class="mdb-lightbox no-margin">
+        <figure class="col-md-4 p-0" (click)="imageSelectd(i)">
+          <Img [src]="image.urls.small" alt="description"  class="img-fluid" data-size="1600x1067">
+          <!-- <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg" data-size="1600x1067">
+            <img alt="picture" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(117).jpg"
+             >
+          </a> -->
+        </figure>
+      </div>
+    </div>
+  </div>

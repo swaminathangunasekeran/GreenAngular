@@ -1,0 +1,52 @@
+<div (mouseenter) ="showUserDetail()"
+(mouseleave) ="hideUserDetails()"class="author-info mt-2">
+<div  class="avatar ">
+  <!-- <img *ngIf ="profilePic" [src]="profilePic"
+  alt="{{name}}"
+  class="img-circle img-no-padding img-responsive"/> -->
+</div>
+<a *ngIf="userDetails.name"
+class="author"
+[routerLink]="['/user-profile',userDetails.userName]">
+{{userDetails.name}}
+</a>
+<a  *ngIf="!userDetails.name"
+class="author"
+[routerLink]="['/user-profile',userDetails.userName]">
+{{userDetails.userName}}
+</a>
+  <div *ngIf="userDetails.showUser"
+  class="popover fade bs-popover-top show"
+   style="will-change: transform; position: absolute;">
+   <div class="arrow"
+    style="left: 20px;">
+  </div>
+  <div class="popover-header">
+    <div class="row mb-0">
+      <div  class="avatar ml-2 col-lg-2 col-md-2 col-sm-2 col-2 p-0">
+          <img *ngIf ="profilePic" [src]="profilePic"
+          alt="{{name}}"
+          class="pop-profile-pic img-responsive"/>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-6 p-0">
+        <a *ngIf="userDetails.name"
+        class="author"
+        [routerLink]="['/user-profile',userDetails.userName]">
+        {{userDetails.name}}
+        </a>
+        <a  *ngIf="!userDetails.name"
+        class="author"
+        [routerLink]="['/user-profile',userDetails.userName]">
+        {{userDetails.userName}}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="popover-body">
+    <p >
+    {{userDetails.description}}</p>
+  <button (click)="follow()" *ngIf="!userDetails.isfollow" type="button" class="btn btn-default fixed-bottom-right" name="button">{{"follow"| translate}}</button>
+  <button (click)="unfollow()" *ngIf="userDetails.isfollow" type="button" class="btn btn-default fixed-bottom-right" name="button">{{"unfollow"| translate}}</button>
+</div>
+</div>
+</div>

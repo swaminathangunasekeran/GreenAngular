@@ -1,0 +1,113 @@
+<app-header-one></app-header-one>
+<div class="wrapper new-insight">
+  <div class="main">
+
+    <div class="container">
+
+      <div class="d-flex">
+    <div class="col s1  mr-5 hide-on-med-and-down float-right">
+
+      <a class="dropdown-button d-flex float-right black-text" (click)="showPubOps()" id="profile-img">
+
+           <i class="material-icons dp48">apps</i>
+           <!--<i class="material-icons dp48">arrow_drop_down</i> !-->
+      </a>
+      <button (click)="saveSelection()" *ngIf="insightId" class="d-flex float-right btn btn-outline-default mr-4">
+        <i class="material-icons dp48">sync</i>{{'newInsight.saveInsight'| translate}}
+      </button>
+
+      <ul id='pub-options' style="top:30px;right:0px" class='dropdown-content profile-content blue-text' >
+          <li>
+            <a class="black-text" target="_blank"
+            href="https://chrome.google.com/webstore/detail/google-input-tools/mclkkofklkfljcocdinagocijmpgbhab?hl=en">
+            <i class="material-icons dp48">translate</i>{{'newInsight.typelang'| translate}}</a></li>
+          <li class="divider"></li>
+          <li *ngIf="insightId"  (click)="saveSelection()">
+            <a class="black-text">
+            <i class="material-icons dp48">sync</i>{{'newInsight.saveInsight'| translate}}
+            </a>
+          </li>
+          <li *ngIf="!insightId"  class="disabled">
+            <a class="black-text">
+            <i class="material-icons dp48">sync</i>{{'newInsight.saveInsight'| translate}}
+            </a>
+          </li>
+
+          <li class="divider"></li>
+          <li *ngIf="insightId" >
+            <a class="black-text" href="#!">
+              <i class="material-icons dp48">copyright</i>{{'newInsight.publish'| translate}}</a>
+          </li>
+          <li *ngIf="!insightId" class="disabled">
+            <a class="black-text" href="#!">
+              <i class="material-icons dp48">copyright</i>{{'newInsight.publish'| translate}}</a>
+          </li>
+          <li class="divider"></li>
+          <li *ngIf="insightId" >
+            <a class="black-text" href="#!">
+              <i class="material-icons dp48">terrain</i>{{'newInsight.addToPublication'| translate}}</a>
+          </li>
+          <li *ngIf="!insightId" class="disabled">
+            <a class="black-text" href="#!">
+              <i class="material-icons dp48">terrain</i>{{'newInsight.addToPublication'| translate}}</a>
+          </li>
+          <li  class="divider"></li>
+          <li *ngIf="insightId">
+          <a  class="black-text" href="#!">
+            <i class="material-icons dp48">share</i>{{'newInsight.share'| translate}}</a>
+         </li>
+         <li *ngIf="!insightId" class="disabled">
+         <a  class="black-text" href="#!">
+           <i class="material-icons dp48">share</i>{{'newInsight.share'| translate}}</a>
+        </li>
+
+
+      </ul>
+    </div>
+      </div>
+      <div>
+        <div>
+          <div class="input-field col s6">
+              <!-- <i class="material-icons prefix">adjust</i> -->
+             <input [(ngModel)]="insightTitle"  id="title" type="text" >
+             <label for="title">{{"newInsight.title"| translate}}</label>
+          </div>
+          <div class="input-field col s6">
+              <div class="add-img" (click)="addPhoto()">
+                  <i *ngIf="!displayUploadImage"  class="material-icons prefix">add_photo_alternate</i>
+                  <i *ngIf="displayUploadImage" class="material-icons prefix icon-maximize">maximize</i>
+                </div> 
+
+                <div  (click)="loadmoreImage()" *ngIf="displayUploadImage && imgSearchKeyword"  class="more-img">
+                    <i class="material-icons prefix icon-maximize">expand_more</i>
+                </div>
+
+                
+                <div *ngIf="displayUploadImage" class="input-field add-img-search ">
+                    <i class="material-icons prefix">add_a_photo</i>
+                    <input  (keyup.enter)="searchImage()" [(ngModel)]="imgSearchKeyword"
+                      name= "email" id="login_last_name" type="text" class="validate">
+                    <label for="login_last_name">{{"newInsight.imageplaceHolder"|translate}}</label>
+                    <div *ngIf="imageLoading" class="erro-on-image text-center mt-5" >
+                        <i class="material-icons">move_to_inbox</i>
+                        {{"downloading"| translate}}
+                    </div>
+                    <div *ngIf="errorOnImage" class="erro-on-image text-center mt-5">
+                      <i class="material-icons">broken_image</i>
+                     {{errorOnImageMessage}}  
+                    </div>
+                    <app-image-gallery  (selectedImage)='imageSelectd($event)' [imageDetails]= "searchResultimages"></app-image-gallery>
+                  </div> 
+                
+            <medium-editor  [ngClass]="{'hide': displayUploadImage}" appEditorImage 
+             (keyup.enter)="saveSelection()"  
+              [(editorModel)]="insightHTML"
+            [editorOptions]="{imageDragging: false,'toolbar': {'buttons': ['img','bold', 'italic', 'underline', 'h1', 'h2', 'h3']}}"
+            [editorPlaceholder]="'insight'| translate">
+          </medium-editor>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

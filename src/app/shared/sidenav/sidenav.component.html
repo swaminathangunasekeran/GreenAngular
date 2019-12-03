@@ -1,0 +1,67 @@
+<mz-sidenav   [collapseButtonId]="'btn-sidenav'"
+  [id]="'sidenav-main'" class="hidden-lg-up">
+  <!-- <mz-sidenav-header>
+    Sidenav header
+  </mz-sidenav-header>
+  <mz-sidenav-subheader>Link Subheader</mz-sidenav-subheader> -->
+
+  <mz-sidenav-link >
+  <img  [src]="profilePic"
+  class=" side-nav-image img-responsive mt-2" alt="{{name}}">
+  <p class="side-nav-name">{{name}}</p>
+</mz-sidenav-link>
+
+
+  <mz-sidenav-link  *ngIf="userLoggedInStatus">
+    <a [routerLink] = "['/newInsight']" >{{'newInsight.newStory'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link  *ngIf="userLoggedInStatus">
+    <a [routerLink] = "['/myDiaries']"  >{{'newInsight.myDiaries'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link    *ngIf="userLoggedInStatus">
+      <a (click)="logout()">{{'newInsight.signout'| translate}}</a>
+    </mz-sidenav-link>
+    <mz-sidenav-divider></mz-sidenav-divider>
+    
+  <mz-sidenav-link>
+      <a class=" main-menu" [routerLink] = "['/home']" href="/home">{{'mainNav.home'| translate}}</a>
+    </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link [active]="true">
+    <a class=" main-menu" [routerLink] = "['/topic','technology']" >{{'mainNav.technology'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a class="black-text  main-menu" [routerLink] = "['/topic','politics']" >{{'mainNav.politics'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a class=" main-menu" [routerLink] = "['/topic','travel']" >{{'mainNav.travel'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a class=" main-menu" [routerLink] = "['/topic','science']" >{{'mainNav.science'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a class=" main-menu" [routerLink] = "['/topic','religion']" >{{'mainNav.religion'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a class="black-text  main-menu" [routerLink] = "['/topic','food']" >{{'mainNav.food'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a class="main-menu" [routerLink] = "['/topic','health']" >{{'mainNav.health'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a class=" main-menu" [routerLink] = "['/topic','stories']" >{{'mainNav.stories'| translate}}</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a class="black-text  main-menu" [routerLink] = "['/more']">{{'mainNav.more'| translate}}</a>
+  </mz-sidenav-link>
+
+
+</mz-sidenav>

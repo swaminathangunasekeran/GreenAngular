@@ -1,0 +1,44 @@
+<mz-modal [fixedFooter]="true" [options]="modalOptions"  #modal>
+  <mz-modal-header>
+      <p> <b>{{yourcomments}} </b></p>
+      <a class="modal-close">
+        <i class="material-icons black-text">close</i>
+      </a>
+   </mz-modal-header>
+   <mz-modal-content >
+   <h1> {{insightInfo.title}}</h1>
+   <medium-editor    
+   [(editorModel)]="comment"
+   [editorOptions]="{disableReturn: true, 
+     disableExtraSpaces: true, toolbar: false ,imageDragging: false}"
+   [editorPlaceholder]='yourcomments'>
+</medium-editor>
+<button class="btn btn-primary m-3" 
+(click)="postComment()">
+{{'post_comments' |  translate}} 
+</button>
+<p class="m-3"> <b>{{'comments_heading' |  translate}} </b></p>
+<ul *ngIf="commentsList.length > 0" class="m-3">
+  <li  *ngFor="let commentDetails of commentsList;let i = index" >
+    <div class="row comment-box">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-6 p-0">
+              <app-user-high-light  [userDetails]="commentDetails.authorDetails[0]" >
+  
+                </app-user-high-light>
+          </div>
+         
+        </div>
+        
+    <div><p class="comment-description"> {{commentDetails.comments.comment}}</p></div> 
+    </div>
+   
+  </li>
+</ul>
+<p *ngIf="commentsList.length < 1" class="m-3" >{{'no_comment_yet' |  translate }}</p>
+</mz-modal-content >
+<mz-modal-footer>
+    <button class="btn btn-primary modal-close" >{{'close'|translate}}</button>
+</mz-modal-footer>
+
+  </mz-modal> 

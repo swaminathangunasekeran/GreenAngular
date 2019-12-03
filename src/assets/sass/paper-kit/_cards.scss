@@ -1,0 +1,197 @@
+$highLightColor:#ff7864;
+.card{
+    border-radius: $border-radius-extreme;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    background-color: #FFFFFF;
+    color: $card-black-color;
+    margin: 10px;
+    position: relative;
+    z-index: 1;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-transition: transform 300ms cubic-bezier(256, 256, 256, 1), box-shadow 200ms ease;
+    -moz-transition: transform 300ms cubic-bezier(256, 256, 256, 1), box-shadow 200ms ease;
+    -o-transition: transform 300ms cubic-bezier(256, 256, 256, 1), box-shadow 200ms ease;
+    -ms-transition: transform 300ms cubic-bezier(256, 256, 256, 1), box-shadow 200ms ease;
+    transition: transform 300ms cubic-bezier(256, 256, 256, 1), box-shadow 200ms ease;
+
+    &:not(.card-plain):hover {
+      // box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
+      // transform: translateY(-5px);
+      // -webkit-transform: translateY(-5px);
+      // -ms-transform: translateY(-10px);
+      // -moz-transform: translateY(-10px);
+    }
+
+    &.card-plain{
+        background-color: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .no-image-height{
+      overflow: hidden;
+      display: block;
+      height: 260px;
+
+    }
+
+    .card-cateogry{
+      width: auto;
+      position: relative;
+      display: inline-block;
+      border-bottom: 0.5px solid $highLightColor;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .with-image-height{
+      overflow: hidden;
+      display: block;
+      height: 30px;
+
+    }
+    .card-image-customn{
+      width: 100%;
+      min-height: 100%;
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+    }
+    .card-footer{
+        padding: 15px;
+        background: transparent ;
+        border-top: 0 none;
+
+        .social-line{
+            .btn:first-child{
+                border-radius: 0 0 0 6px;
+            }
+            .btn:last-child{
+                border-radius: 0 0 6px 0;
+            }
+        }
+    }
+
+    .card-block{
+        .card-footer{
+            padding: 0;
+        }
+        .card-description + .card-footer{
+            padding-top: 10px;
+        }
+    }
+
+    &.no-transition:hover,
+    &.card-register:hover,
+    &.page-carousel:hover{
+        box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+        transform: none;
+        -webkit-transform: none;
+        -ms-transform: none;
+        -moz-transform: none;
+    }
+}
+.section-dark{
+    .card-profile.card-plain{
+        .card-title{
+            color: $white-color !important;
+            font-weight: bold;
+          }
+        .card-description{
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+}
+
+.card-profile{
+    margin-top: 30px;
+    text-align: center;
+
+    .card-cover{
+        height: 130px;
+        background-position: center center;
+        background-size: cover;
+        border-radius: $border-radius-extreme $border-radius-extreme 0 0;
+    }
+
+    .card-block{
+        .card-title{
+            margin-top: 5px !important;
+
+        }
+        .card-category{
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+    }
+
+    .card-avatar{
+        max-width: 120px;
+        max-height: 120px;
+        margin: -60px auto 0;
+        border-radius: 50%;
+        overflow: hidden;
+
+        & img{
+            max-width: 100%;
+            height: auto;
+        }
+        &.border-white{
+            border: 4px solid $white-color;
+        }
+        &.border-gray{
+            border: 4px solid $card-muted-color;
+        }
+    }
+
+}
+
+.section{
+    .card-profile{
+        margin-top: 100px;
+    }
+}
+
+.card-register {
+  background-color: #FF8F5E;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 350px;
+  margin: 120px 0 70px;
+  min-height: 400px;
+  padding: 30px;
+  z-index: 1;
+
+  .social-line{
+      .btn{
+          margin-top: 0;
+      }
+  }
+}
+.section-image{
+    .card-register{
+        margin-top: 0;
+    }
+}
+
+.card-register label {
+  margin-top: 15px; }
+
+.card-register .title {
+  color: #B33C12;
+  text-align: center; }
+
+.card-register .btn {
+  margin-top: 30px; }
+
+.card-register .forgot {
+  text-align: center; }
+
+  .extremeHero-divider {
+      position: relative;
+      border-bottom: 1px solid rgba(0,0,0,.15);
+      max-width: 1032px;
+  }

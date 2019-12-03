@@ -1,0 +1,44 @@
+@import "../../mixin";
+
+@import "../../../assets/sass/paper-kit/variables";
+
+.no-login{
+    height: 310px;
+      width: 50%;
+      margin: 4% auto;
+      /* background: url(https://images.pexels.com/photos/255527/pexels-photo-255527.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); */
+      background-size: 100%;
+      /* display: inline-block; */
+      padding: 1px 2%;
+      position: relative;
+      -webkit-box-shadow: -18px 19px 31px rgba(0, 0, 0, 0.2);
+      box-shadow: -18px 19px 31px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background-position: center;
+      background:  $navColor;
+    @include mobile{
+      background: none;
+      background-color: $navColor;
+  
+  
+    };
+  }
+
+  .heading{
+    font-family: medium-marketing-display-font,Georgia,Cambria,"Times New Roman",Times,serif!important;
+      font-style: normal!important;
+      font-weight: 500!important;
+      font-size: 42px!important;
+      line-height: 48px!important;
+      -webkit-transform: translateY(1.5px);
+      transform: translateY(1.5px);
+      color: #fff;
+      margin: 10% 0 3% 12%;
+      @include mobile{
+        font-size: 22px!important;
+      }
+  
+      span{
+        color:$highLightColor;
+      }
+  }

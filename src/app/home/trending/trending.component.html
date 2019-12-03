@@ -1,0 +1,11 @@
+<div class="trending">
+    <div class="row col-xl-10 col-sm-12 p-0" style="z-index: 0" >
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 card-list-container" *ngFor="let insight of insights;let i = index">
+            <app-thudup-vcard 
+            [insightDetails]="insight" 
+            style="display: block"></app-thudup-vcard>
+        </div>
+
+        
+    </div>
+</div>

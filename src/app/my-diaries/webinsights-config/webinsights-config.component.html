@@ -1,0 +1,84 @@
+<div class="input-field mb-6">
+  
+  <input 
+  name= "rss" id="login_last_name" type="text" class="validate">
+  <label for="login_last_name">rss url</label>
+</div>
+<div class="row mt-5">
+  <div *ngFor="let insight of webInsights;let i = index"class="col-xl-3 col-lg-3 col-md-6 col-sm-12">  
+    <div class="horizontal mb-3">
+          <div *ngIf="insight.titleImage" class="card-image  p-0">
+            <img 
+            [src]="insight.titleImage"
+            data-title="{{insight.title}}" class="card-bg" style="visibility: visible;">
+          </div>
+
+          <div *ngIf="!insight.titleImage" class="card-image imageWithTitle p-0">
+              <div class="card-category">{{insight.title}}</div>
+            </div>
+
+          <div class="card-stacked">
+            <div class="card-category">{{insight.title}}</div>
+
+            <div class="card-content">
+              <!-- <h4 class="card-title m-0">Card title</h4> -->
+            <div>
+
+            </div>
+              <p class="summary" [innerHtml]="insight.sample" ></p>
+            </div>
+            <div [ngClass] = "{hide:loading}">
+              <div *ngIf="insight.status == 1">
+                <i *ngIf="insight.homePage == true" class="material-icons">
+                add_to_home_screen
+                </i>
+                <i *ngIf="insight.trending == true"  class="material-icons">
+                trending_up
+                </i>
+                <i *ngIf="insight.editorsPick == true"  class="material-icons">
+                highlight
+                </i>
+              </div>
+
+              <div>
+              No.of.reads - {{insight.numberOfreads}}
+              </div>
+              <div *ngIf="insight.status == 3">
+                <i (click)= "toggleStatue(insight, 'status')" class="material-icons">restore</i>
+              </div>
+
+              <div *ngIf="insight.status == 1">
+                <span (click)= "toggleStatue(insight, 'homePage')" *ngIf="insight.homePage == true"  class="highLightColor" >
+                remove from home screen
+                </span>
+                <span (click)= "toggleStatue(insight, 'trending')"  *ngIf="insight.trending == true" class="highLightColor">
+                remove from trending
+                </span>
+                <span (click)= "toggleStatue(insight, 'editorsPick')" *ngIf="insight.editorsPick == true" class="highLightColor">
+                remove from editorsPick
+                </span>
+                <span (click)= "toggleStatue(insight, 'homePage')" *ngIf="insight.homePage !== true"  class="highLightColor" >
+                add to home screen
+                </span>
+                <span (click)= "toggleStatue(insight, 'trending')"  *ngIf="insight.trending !== true" class="highLightColor">
+                add to trending
+                </span>
+                <span  (click)= "toggleStatue(insight, 'editorsPick')" *ngIf="insight.editorsPick !== true" class="highLightColor">
+                add to editorsPick
+                </span>
+                <span  (click)= "toggleStatue(insight, 'status')" *ngIf="insight.status == 1" class="highLightColor">
+                delete
+                </span>
+              </div>
+            </div>
+            <div [ngClass] = "{show:loading,hide:!loading}">
+            <span class="highLightColor">
+                updating
+            </span>
+
+            </div>
+
+          </div>
+    </div>
+  </div>
+</div>

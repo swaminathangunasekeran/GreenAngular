@@ -1,0 +1,28 @@
+<footer class="footer">
+    <div class="container">
+        <div class="row m-0">
+            <nav class="footer-nav">
+                <ul>
+                   
+                    <li><a id="technology" class="footer-option"[routerLink] = "['/topic','technology']" >{{'mainNav.technology'| translate}}</a></li>
+                    <li><a id="politics" class="footer-option"[routerLink] = "['/topic','politics']" >{{'mainNav.politics'| translate}}</a></li> 
+                     <li><a id ="travel" class="footer-option"[routerLink] = "['/topic','travel']" >{{'mainNav.travel'| translate}}</a></li>
+                     <li><a class="footer-option"[routerLink] = "['/topic','science']" >{{'mainNav.science'| translate}}</a></li>
+                     <li><a class="footer-option"[routerLink] = "['/topic','religion']" >{{'mainNav.religion'| translate}}</a></li>
+                     <li><a class="footer-option"[routerLink] = "['/topic','food']" >{{'mainNav.food'| translate}}</a></li>
+                     <!-- <li><a class="black-text  main-menu" routerLink="js">{{'mainNav.byyoung'| translate}}</a></li> -->
+                     <li><a class="footer-option" [routerLink] = "['/topic','health']" >{{'mainNav.health'| translate}}</a></li>
+                     <li><a class="footer-option"[routerLink] = "['/topic','stories']" >{{'mainNav.stories'| translate}}</a></li>
+                     <!-- <li><a class="footer-option"[routerLink] = "['/more']">{{'mainNav.more'| translate}}</a></li> -->
+
+                </ul>
+            </nav>
+            <div class="credits ml-auto">
+                <span class="copyright">
+                    © {{test | date: 'yyyy'}}, <i class='fa fa-heart heart'></i> {{'copyright'| translate}}
+
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,19 @@
+h1{
+    font-size: 2em;
+}
+.comment-box{
+
+  background: #fff;
+  padding: 10px;
+  margin: 5px;
+    .comment-description{
+        color: rgba(0, 0, 0, 0.54) !important;
+        letter-spacing: -.003em;
+        font-size: 18px;
+        line-height: 1.5;
+        font-size: 20px;
+        max-height: 200px;
+        height: auto;
+        overflow: hidden;
+    }
+}

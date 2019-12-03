@@ -1,0 +1,47 @@
+ /* You can add global styles to this file, and also import other style files */
+$title-color :#264c71!default;
+$error-color : #f44336!default;
+$highLightColor:#ff7864;
+
+a{
+  font-weight: bold !important;
+  letter-spacing: 0.12em !important;
+}
+
+
+.tabs .tab a{
+  font-weight: bold;
+}
+input{
+  height: 3.5rem !important;
+  padding: 10px 0px 0px 0px !important;
+  font-size: 1.5rem !important;
+  margin-bottom:0px !important;
+
+}
+button.submit{
+  margin-top: 20px !important;
+
+}
+button i ,body .btn i{
+      line-height: 20px;
+}
+.dropdown-content li.disabled{
+  background-color: #eee;
+  opacity: 0.3;
+}
+.modal-close{
+  position: absolute;
+  right:10px;
+  top: 10px;
+  display: block;
+
+}
+.error{
+  color:$error-color!important;
+}
+
+.blog-post{
+  font-size: 16px;
+  line-height: 2;
+}

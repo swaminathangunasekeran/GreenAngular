@@ -1,0 +1,54 @@
+@import "../../mixin";
+.navcontainer {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  left:40%;
+  @include desktop{
+    width: 90%;
+  }
+  .dropdown-content{
+     li {
+       a{
+         color: #000;
+       }
+       span{
+         color: #000;
+       }
+     }
+  }
+
+
+.title-div{
+  width: 100%;
+text-align: center;
+height: 100%;
+
+}
+.brand-logo{
+  margin-right: 8%;
+    margin-top: 0%;
+    position: relative;
+    left: 0;
+
+    a{
+      color: #000;
+      letter-spacing: normal !important;
+    }
+    .material-icons{
+          margin-right: 0px;
+          font-size: 34px;
+          margin-top: -8px;
+    }
+}
+.profile-content{
+  width: 220px !important;
+      /* right: 20px !important; */
+  top: 70px !important;
+left: unset !important;
+position: absolute !important;
+right: 20px !important;
+}
+
+
+}

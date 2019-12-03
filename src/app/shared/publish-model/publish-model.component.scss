@@ -1,0 +1,72 @@
+.blog-post{
+    text-align: left;
+
+}
+
+
+.more-img{
+	position: absolute;
+	left: 10%;
+	border: 1px solid #000;
+	border-radius: 20px;
+	width: 40px;
+	padding: 5px 7px 0px;
+	cursor: pointer;
+	height: 40px;
+	top: 0;
+
+	.icon-maximize{
+		position: absolute;
+		top: 8px;
+	}
+
+}
+
+.add-img{
+	position: absolute;
+	left: 3%;
+	border: 1px solid #000;
+	border-radius: 20px;
+	width: 40px;
+	padding: 5px 7px 0px;
+	cursor: pointer;
+	height: 40px;
+	top: 0;
+		.icon-maximize{
+      position: absolute;
+      top: 15px;
+    }
+}
+.add-img-center{
+	width: 100%;
+    margin: 0% 0 0 0;
+    text-align: center;
+    font-size: 1em;
+		cursor: pointer;
+		.material-icons{
+			font-size: 9em;
+		}
+}
+div.fileinputs {
+	position: relative;
+}
+
+div.fakefile {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+
+  .btn-default{
+    width: 100%;
+  }
+}
+
+input.file {
+	position: relative;
+	text-align: right;
+	-moz-opacity:0 ;
+	opacity: 0;
+	z-index: 2;
+
+}

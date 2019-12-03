@@ -1,0 +1,112 @@
+<app-navbar [hideMenu]=true ></app-navbar>
+<div class="wrapper">
+  <div class="container">
+    <div class="row author mt-4">
+
+
+      <div class ="col-md-12" *ngIf="insightInfo">
+
+        <div class ="col-xl-8 col-lg-8 col-md-8 col-sm-12 insightTitle"  *ngIf="insightAuthor">
+
+          <h1 class ="col-md-10 ">
+            {{insightInfo.title}}
+          </h1>
+          
+          <div class ="col-md-5">
+              <div class="col-lg-2 col-md-2 col-sm-2 col-2 p-0">
+                  <app-user [userDetails]="insightAuthor"></app-user>
+              </div>
+                
+          </div>
+          <span class="ml-3" *ngIf="insightInfo.updatedDate">{{insightInfo.updatedDate | date}}</span>
+        </div>
+        <div  *ngIf="insightInfo.titleImage">
+            <img class="card-img-top mb-6" src="{{insightInfo.titleImage}}" 
+            data-title="{{insightInfo.title}}">
+        </div>
+
+        <div class="blog-post col-xl-8 col-lg-8 col-md-8 col-sm-12" [innerHtml]="insightInfo.body"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+      <div  *ngIf ="insightInfo">
+          <button  
+          *ngIf ="insightInfo && insightInfo.userReaction && 
+          insightInfo.userReaction.length > 0"
+          (click)="unlikeInsight(insightInfo._id)" 
+              class=" btn btn-link btn-just-icon btn-neutral
+               col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3 like-border btn-like-fixed">
+               <!-- <span *ngIf="insightInfo.numberOfLikes > 0"  >
+                   {{insightInfo.numberOfLikes}}</span>  -->
+               <i class="material-icons">
+                   thumb_up
+                 </i>
+                 <label *ngIf="insightInfo.numberOfLikes >1" > 
+                   <a  >{{insightInfo.numberOfLikes}}
+                     {{"liked_this"|translate}}
+                    </a> 
+                  
+                 </label>
+                 <label *ngIf="insightInfo.numberOfLikes == 1" > 
+                 <a > {{"one_liked_this" |translate }}</a>  
+                 
+                 </label>
+             </button>
+      </div>
+      
+         <button  
+         *ngIf ="insightInfo && (!insightInfo.userReaction || insightInfo.userReaction.length <= 0)" 
+         (click)="likeInsight(insightInfo._id)"
+          class=" btn btn-link btn-just-icon btn-neutral
+           col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3 btn-like-fixed">
+           <!-- <span *ngIf="insightInfo.numberOfLikes > 0"  >
+               {{insightInfo.numberOfLikes}}</span>  -->
+           <i class="material-icons">
+               thumb_up
+             </i>
+             <label *ngIf="insightInfo.numberOfLikes >1" > 
+               <a  >{{insightInfo.numberOfLikes}}
+                 {{"liked_this"|translate}}
+                </a> 
+              
+             </label>
+             <label *ngIf="insightInfo.numberOfLikes == 1" > 
+             <a > {{"one_liked_this" |translate }}</a>  
+             
+             </label>
+            
+         </button>
+         <button 
+         class="btn btn-link btn-just-icon
+         btn-neutral col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3 btn-share-fixed"
+         (click)="showCommentBox(insightInfo)">
+          <i class="material-icons">
+              comment
+            </i> 
+            <label  *ngIf="insightInfo && insightInfo.numberOfComments == 1" > 
+                <a > {{"one_commented_this" |translate }}</a>  
+                
+              </label>
+              <label  *ngIf="insightInfo && insightInfo.numberOfComments > 1" > 
+                  <a  >{{insightInfo.numberOfComments}}
+                    {{"comment_this"|translate}}
+                   </a>   
+              </label>
+        </button> 
+       <!-- <div class="medium-editor-element-box">
+          <medium-editor    
+          [(editorModel)]="comment"
+          [editorOptions]="{disableReturn: true, 
+            disableExtraSpaces: true, toolbar: false ,imageDragging: false}"
+          [editorPlaceholder]='yourcomments'>
+      </medium-editor>
+
+       </div> -->
+
+       
+         
+<app-footer></app-footer>

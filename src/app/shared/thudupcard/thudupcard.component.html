@@ -1,0 +1,161 @@
+<div 
+
+class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mx-auto mt-4">
+  <div style="border-bottom: 1px solid #ccc;" class="horizontal">
+      <p class="topic"><a [routerLink] = "['/topic',insightDetails.topic[0].title]" >{{getTopicTranslated(insightDetails.topic[0].title)}}</a></p>
+      <div class="card-category">
+          <p class="first-letter ">{{insightDetails.title.replace(" ", "").slice(0, 1)}}</p>
+          <h2 class="hide-on-up"><a [routerLink]="['/insight',insightDetails.url]">{{insightDetails.title}}</a></h2>
+          <p class="info " ><a>{{insightDetails.createdDate | date: 'dd-MMM'}}</a></p>
+          <div class="col-lg-1 col-md-1 col-sm-1 col-1 p-0">
+              <app-user-high-light [userDetails]="insightDetails.authorDetails[0]" >
+              </app-user-high-light>   
+          </div>
+      </div>      
+    <div class="row">
+      <div  *ngIf="insightDetails.titleImage" class="card-image mt-3 p-0 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <img
+        [src]="insightDetails.titleImage"
+        data-title="{{insightDetails.title}}" class="card-bg" style="visibility: visible;">
+      </div>
+
+      <div *ngIf="!insightDetails.titleImage" class="card-image imageWithTitle  mt-3 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+          <div class="card-category">{{insightDetails.title}}</div>
+        </div>
+      <div class="card-stacked pl-3 col-xl-8 col-lg-8 col-md-8 col-sm-8">
+        <div class="card-content mt-0">
+          <!-- <h4 class="card-title m-0">Card title</h4> -->
+          <!-- <a class="sample" [routerLink]="['/insight',insightDetails.url]">
+             <p  [innerHtml]="insightDetails.sample"></p>
+           </a> -->
+           <p  class="sample" [innerHtml]="insightDetails.sample"></p>
+        </div>
+          <div class="ml-1">
+            <button *ngIf ="insightDetails.userReaction && insightDetails.userReaction.length > 0"
+              (click)="unlikeInsight(insightDetails._id)" 
+              class="btn btn-link btn-just-icon btn-neutral like-border
+              col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+              <!-- <span class="like-span" *ngIf="insightDetails.numberOfLikes > 0"  >
+                 {{insightDetails.numberOfLikes}}</span>  -->
+             <i class="material-icons">
+                   thumb_up
+                 </i>
+                 <label *ngIf="insightDetails.numberOfLikes > 1" > 
+                   <a  >{{"you" |translate }} 
+                      & {{insightDetails.numberOfLikes}}
+                      {{"liked_this"|translate}}</a>
+                 </label>
+                 <label *ngIf="insightDetails.numberOfLikes == 1" > 
+                  <a > {{"you_alone_liked"| translate}}</a>    
+                 </label>
+                 <label  *ngIf="insightDetails.numberOfComments == 1" > 
+                  <a > {{"one_commented_this" |translate }}</a>  
+                  
+                  </label>
+                  <label  *ngIf="insightDetails.numberOfComments > 1" > 
+                    <a  >{{insightDetails.numberOfComments}}
+                      {{"comment_this"|translate}}
+                     </a>  
+                    
+                    </label>
+           </button>
+          
+   
+         <button  *ngIf ="!insightDetails.userReaction || insightDetails.userReaction.length <= 0" 
+         (click)="likeInsight(insightDetails._id)"
+          class=" btn btn-link btn-just-icon btn-neutral
+           col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+           <!-- <span *ngIf="insightDetails.numberOfLikes > 0"  >
+               {{insightDetails.numberOfLikes}}</span>  -->
+           <i class="material-icons">
+               thumb_up
+             </i>
+             <label *ngIf="insightDetails.numberOfLikes >1" > 
+               <a  >{{insightDetails.numberOfLikes}}
+                 {{"liked_this"|translate}}
+                </a> 
+              
+             </label>
+             <label *ngIf="insightDetails.numberOfLikes == 1" > 
+             <a > {{"one_liked_this" |translate }}</a>  
+             
+             </label>
+             <label class="" *ngIf="insightDetails.numberOfComments == 1" > 
+              <a > {{"one_commented_this" |translate }}</a>  
+              
+              </label>
+              <label class="" *ngIf="insightDetails.numberOfComments > 1" > 
+                <a  >{{insightDetails.numberOfComments}}
+                  {{"comment_this"|translate}}
+                 </a>  
+                
+                </label>
+         </button>
+           
+            <button (click)="showCommentBox(insightDetails)" class="btn btn-link btn-just-icon btn-neutral col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+                  <i class="material-icons">
+                      comment
+                    </i> 
+            </button>  
+            <button class="btn btn-link btn-just-icon btn-neutral col-xl-1 col-lg-1 col-md-1 col-sm-1 mt-3">
+                <i class="material-icons">
+                      share
+                </i> 
+            </button> 
+          </div>
+             
+
+      </div>
+      <!-- <div class="card-image p-0 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <img
+        [src]="insightDetails.titleImage"
+        data-title="Startseiten Teaser Creme Guides 1" class="card-bg" style="visibility: visible;">
+      </div> -->
+
+      <!-- <div *ngIf="index %2 !== 0" class="ml-5">
+
+          <a  *ngIf ="insightDetails.userReaction && insightDetails.userReaction.length > 0"
+              class="btn btn-link  like-border
+              btn-just-icon btn-neutral col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+              <span *ngIf="insightDetails.numberOfLikes > 0"  >
+                {{insightDetails.numberOfLikes}}</span>   
+              <i class="material-icons">
+                  thumb_up
+                  </i>
+                  <label > 
+                      {{"you_like_this" |translate }}
+                    </label>
+          </a>
+         
+          <a *ngIf ="!insightDetails.userReaction || insightDetails.userReaction.length <= 0" 
+          (click)="likeInsight(insightDetails._id)"
+           class="btn btn-link btn-just-icon btn-neutral 
+            col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+            <span *ngIf="insightDetails.numberOfLikes > 0"  >
+                {{insightDetails.numberOfLikes}}</span> 
+                
+            <i class="material-icons">
+                thumb_up
+              </i>
+          </a>
+
+        <a class="btn btn-link btn-just-icon btn-neutral col-xl-1 col-lg-1 col-md-1 col-sm-1 mr-3 mt-3">
+              <i class="material-icons">
+                  comment
+                </i> 
+        </a>  
+        <a class="btn btn-link btn-just-icon btn-neutral col-xl-1 col-lg-1 col-md-1 col-sm-1 mt-3">
+            <i class="material-icons">
+                  share
+            </i> 
+        </a> 
+      </div> -->
+     
+       
+    </div>
+
+   
+
+
+  </div>
+</div>
