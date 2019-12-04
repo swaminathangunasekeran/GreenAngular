@@ -29,7 +29,7 @@
     "clean-css": "^4.1.9",
     "core-js": "2.4.1",
     "google-transliterate": "^0.1.0",
-    "jquery": "2.2.4",
+    "jquery": "3.4.1",
     "jw-bootstrap-switch-ng2": "1.0.3",
     "mdi": "^2.1.19",
     "medium-editor": "^5.23.3",
